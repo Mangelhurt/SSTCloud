@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-header">Mi Perfil</div>
+
+      <button class="sidebar-item active" data-section="sec-info">
+        <span class="icon">👤</span> Información
+      </button>
+      <button class="sidebar-item" data-section="sec-avatar">
+        <span class="icon">🖼️</span> Foto de perfil
+      </button>
+      <button class="sidebar-item" data-section="sec-password">
+        <span class="icon">🔒</span> Contraseña
+      </button>
+
+      <button class="sidebar-item sidebar-logout" id="btn-logout">
+        <span class="icon">🚪</span> Cerrar sesión
+      </button>
+    </aside>
+
+    <!-- ===== Main ===== -->
+    <main class="main-content">
+
+      <!-- Profile header shown on all sections -->
+      <div class="avatar-area">
+        <div class="avatar-wrap" id="avatar-display">
+          <div class="avatar-placeholder">?</div>
+        </div>
+        <div>
+          <div class="avatar-name" id="profile-name">Cargando...</div>
+          <div class="avatar-email" id="profile-email"></div>
+        </div>
+      </div>
+
+      <!-- ── Section: Información básica ── -->
+      <section id="sec-info" class="section active">
+        <h2 class="section-title">Información básica</h2>
+        <p class="section-subtitle">Actualiza tus datos personales</p>
+
+        <form id="info-form" novalidate>
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" id="f-name" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" id="f-email" disabled style="opacity:0.6;cursor:not-allowed">
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="text" id="f-phone" placeholder="+57 300 000 0000">
+            </div>
+            <div class="form-group">
+              <label>Ubicación</label>
+              <input type="text" id="f-location" placeholder="Ciudad, País">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Biografía</label>
+            <textarea id="f-bio" placeholder="Cuéntanos algo sobre ti..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-save-info">Guardar cambios</button>
+          <div id="info-alert" class="alert"></div>
+        </form>
+      </section>
+
+      <!-- ── Section: Foto de perfil ── -->
+      <section id="sec-avatar" class="section">
+        <h2 class="section-title">Foto de perfil</h2>
+        <p class="section-subtitle">Sube una imagen PNG, JPG o WEBP (máx. 5 MB)</p>
+
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-primary" id="btn-upload-avatar">
+            ⬆️ Subir foto
+          </button>
+          <button class="btn btn-danger btn-sm" id="btn-delete-avatar" style="display:none">
+            🗑️ Eliminar foto
+          </button>
+          <input type="file" id="avatar-input" class="file-input-hidden" accept="image/png,image/jpeg,image/webp">
+        </div>
+
+        <div id="avatar-alert" class="alert" style="margin-top:16px"></div>
+      </section>
+
+      <!-- ── Section: Cambiar contraseña ── -->
+      <section id="sec-password" class="section">
+        <h2 class="section-title">Cambiar contraseña</h2>
+        <p class="section-subtitle">Usa al menos 8 caracteres</p>
+
+        <form id="pwd-form" novalidate style="max-width:420px">
+          <div class="form-group">
+            <label>Contraseña actual</label>
+            <input type="password" id="f-current-password" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+          <div class="divider"></div>
+          <div class="form-group">
+            <label>Nueva contraseña</label>
+            <input type="password" id="f-new-password" placeholder="••••••••" required autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label>Confirmar nueva contraseña</label>
+            <input type="password" id="f-confirm-password" placeholder="••••••••" required autocomplete="new-password">
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-change-pwd">Cambiar contraseña</button>
+          <div id="pwd-alert" class="alert"></div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>
