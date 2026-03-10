@@ -9,6 +9,10 @@ __pycache__/
 # Flask uploads
 backend/uploads/
 
+# Database
+*.db
+*.sqlite3
+
 # OS files
 .DS_Store
 Thumbs.db
