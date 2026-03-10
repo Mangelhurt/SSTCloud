@@ -3,7 +3,7 @@ from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from config import get_config
-from database import db 
+from database import db
 from services.auth_service import bcrypt, register_demo_user
 from routes.auth import auth_bp
 from routes.profile import profile_bp
