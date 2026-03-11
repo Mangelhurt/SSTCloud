@@ -18,6 +18,17 @@ class User(db.Model):
 
     avatar = db.Column(db.String(255), nullable=True)
 
+    # ── Relationships ─────────────────────────────────────────────────────────
+    # uselist=False  → enforces 1:1 at the ORM level (one company per user).
+    # lazy="select"  → NOT loaded unless explicitly accessed; zero impact on
+    #                   existing auth/profile queries that never touch .company.
+    company = db.relationship(
+        "Company",
+        backref="owner",
+        uselist=False,
+        lazy="select",
+    )
+
     # -------------------------------------
 
     def to_public_dict(self):

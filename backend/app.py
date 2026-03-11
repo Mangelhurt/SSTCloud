@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from config import get_config
 from database import db
+from services.seed_service import seed_standards
 from services.auth_service import bcrypt, register_demo_user
 from routes.auth import auth_bp
 from routes.profile import profile_bp
@@ -35,6 +36,8 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         register_demo_user()
+        result = seed_standards()
+        print(f"Standards: {result}")
 
     print("Server running at http://localhost:5000")
     print("Demo: demo@example.com / demo1234")
