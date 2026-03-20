@@ -8,6 +8,7 @@ from services.seed_service import seed_standards
 from services.auth_service import bcrypt, register_demo_user
 from routes.auth import auth_bp
 from routes.profile import profile_bp
+from routes.sst import sst_bp
 
 
 def create_app():
@@ -26,6 +27,7 @@ def create_app():
     # Blueprints
     app.register_blueprint(auth_bp)
     app.register_blueprint(profile_bp)
+    app.register_blueprint(sst_bp)
 
     return app
 
